@@ -1,14 +1,11 @@
 import type { Metadata } from "next";
-import localFont from "next/font/local";
+import {Be_Vietnam_Pro} from 'next/font/google';
 import "./globals.css";
 
-const geistSans = localFont({
-  src: "./fonts/GeistVF.woff",
-  variable: "--font-geist-sans",
-});
-const geistMono = localFont({
-  src: "./fonts/GeistMonoVF.woff",
-  variable: "--font-geist-mono",
+const be_vietnam = Be_Vietnam_Pro({
+  weight: ['100','200','300','400','500','600','700','800','900'],
+  style: 'normal',
+  subsets: ['latin'],
 });
 
 export const metadata: Metadata = {
@@ -22,10 +19,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body className={`${geistSans.variable} ${geistMono.variable}`}>
+    <html lang="en" className={be_vietnam.className}>
+      <body className=''>
         {children}
       </body>
     </html>
   );
-}
+};
