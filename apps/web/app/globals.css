@@ -24,3 +24,20 @@
   --color-grey-60: #98989A;
   --color-grey-70: #B3B3B3;
 }
+
+@utility px-basic {
+  @apply px-4
+}
+
+@utility text-nav {
+  @apply text-sm leading-normal 2xl:text-lg
+}
+@utility h1 {
+  @apply text-base leading-normal font-semibold lg:text-4xl 2xl:text-5xl
+}
+@utility h3 {
+  @apply text-2xl leading-normal font-medium lg:text-3xl 2xl:text-4xl
+}
+@utility small-p {
+  @apply text-sm leading-normal font-normal lg:text-base 2xl:text-lg
+}
