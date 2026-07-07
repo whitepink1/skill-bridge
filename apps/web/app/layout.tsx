@@ -24,7 +24,7 @@ export default function RootLayout({
     <html lang="en" className={be_vietnam.className}>
       <body className='flex flex-col min-h-screen px-basic bg-white-97'>
         <Header />
-        <main className="grow">
+        <main className="w-full grow max-w-400 mx-auto">
           {children}
         </main>
         <Footer />
