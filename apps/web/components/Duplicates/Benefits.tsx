@@ -15,7 +15,7 @@ const Benefits = () => {
             </SectionTitle>
             <div className='grid grid-cols-1 gap-5 mt-10 lg:mt-15 2xl:mt-20 md:grid-cols-2 2xl:grid-cols-3'>
                 {benefitData.map((item, index) => (
-                    <div key={item.name} className={`flex flex-col gap-7.5 bg-white rounded-[10px] p-7.5 lg:p-10 2xl:p-12.5 lg:gap-10 2xl:gap-12.5 ${index > 3 ? 'hidden lg:block' : ''}`}>
+                    <div key={item.name} className={`flex-col gap-7.5 bg-white rounded-[10px] p-7.5 lg:p-10 2xl:p-12.5 lg:gap-10 2xl:gap-12.5 ${index > 3 ? 'hidden lg:flex' : 'flex'}`}>
                         <p className='text-5xl font-bold text-end lg:text-6xl 2xl:text-[80px]'>0{index + 1}</p>
                         <div className='flex flex-col gap-2.5 lg:gap-3.5'>
                             <p className='base-p'>{item.name}</p>

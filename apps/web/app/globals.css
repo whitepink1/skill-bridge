@@ -44,6 +44,12 @@
 @utility small-p {
   @apply text-sm leading-normal font-normal lg:text-base 2xl:text-lg
 }
+@utility small-p-sb {
+  @apply text-base leading-normal font-semibold 2xl:text-lg
+}
+@utility small-p-med {
+  @apply text-base leading-normal font-medium lg:text-lg 2xl:text-[22px]
+}
 @utility base-p {
   @apply text-xl leading-normal font-semibold 2xl:text-2xl
 }

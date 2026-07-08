@@ -14,7 +14,7 @@ const Button = ({type, href, onHandler, addClass, style, children}: ButtonProps)
     const colorScheme = {
         transparent: 'text-grey-15',
         orange: 'bg-orange-50 text-white',
-        grey: '',
+        grey: 'bg-white-97 border border-white-95',
         white: 'bg-white'
     }
     return (
