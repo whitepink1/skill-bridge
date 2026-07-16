@@ -22,7 +22,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={be_vietnam.className}>
-      <body className='flex flex-col min-h-screen px-basic bg-white-97'>
+      <body className='flex flex-col *:not-last:px-basic min-h-screen bg-white-97'>
         <Header />
         <main className="w-full grow max-w-400 mx-auto">
           {children}

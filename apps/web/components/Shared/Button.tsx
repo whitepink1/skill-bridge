@@ -15,7 +15,7 @@ const Button = ({type, href, onHandler, addClass, style, children}: ButtonProps)
         transparent: 'text-grey-15',
         orange: 'bg-orange-50 text-white',
         grey: 'bg-white-97 border border-white-95',
-        white: 'bg-white'
+        white: 'bg-white border border-white-95'
     }
     return (
         type === 'button' ?

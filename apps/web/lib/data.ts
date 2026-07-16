@@ -52,3 +52,11 @@ export const pricingData = [
         {name: 'Early access to new courses and updates.', state: true},
     ]},
 ];
+
+export const faqData = [
+    {name: 'Can I enroll in multiple courses at once?', details: 'Absolutely! You can enroll in multiple courses simultaneously and access them at your convenience.', link: '/', linkText: 'Enrollment Process for Different Courses'},
+    {name: 'What kind of support can I expect from instructors?', details: 'What kind of support can I expect from instructors?', link: '/', linkText: 'Enrollment Process for Different Courses'},
+    {name: 'Are the courses self-paced or do they have specific start and end dates?', details: 'Are the courses self-paced or do they have specific start and end dates?', link: '/', linkText: 'Enrollment Process for Different Courses'},
+    {name: 'Are there any prerequisites for the courses?', details: 'Are there any prerequisites for the courses?', link: '/', linkText: 'Enrollment Process for Different Courses'},
+    {name: 'Can I download the course materials for offline access?', details: 'Can I download the course materials for offline access?', link: '/', linkText: 'Enrollment Process for Different Courses'},
+];
