@@ -13,7 +13,7 @@ const Testimonials = () => {
             <div className='grid grid-cols-1 gap-5 mt-10 lg:grid-cols-2 2xl:gap-7.5'>
                 {testemonialsData.map((item) => (
                     <div key={item.img} className='flex flex-col bg-white rounded-[10px] border border-white-95'>
-                        <p className='small-p text-grey-30 p-7.5 border-b border-white-95 lg:p-10 2xl:p-12.5'>{item.text}</p>
+                        <p className='small-p grow text-grey-30 p-7.5 border-b border-white-95 lg:p-10 2xl:p-12.5'>{item.text}</p>
                         <div className='flex justify-between bg-white-99 py-5 px-7.5 lg:py-6 lg:px-10 2xl:px-12.5 2xl:py-7.5'>
                             <p className='flex items-center gap-2.5 small-p-sb'>
                                 <Image

@@ -60,3 +60,17 @@ export const faqData = [
     {name: 'Are there any prerequisites for the courses?', details: 'Are there any prerequisites for the courses?', link: '/', linkText: 'Enrollment Process for Different Courses'},
     {name: 'Can I download the course materials for offline access?', details: 'Can I download the course materials for offline access?', link: '/', linkText: 'Enrollment Process for Different Courses'},
 ];
+
+export const footerNavData = [
+    {name: 'Home', links: [
+        {title: 'Benefits', url: '/'},
+        {title: 'Our Courses', url: '/'},
+        {title: 'Our Testimonials', url: '/'},
+        {title: 'Our FAQ', url: '/'},
+    ]},
+    {name: 'About Us', links: [
+        {title: 'Company', url: '/'},
+        {title: 'Achievements', url: '/'},
+        {title: 'Our Goals', url: '/'},
+    ]}
+];

@@ -34,7 +34,7 @@ const FAQDetails = ({name, details, link, linkText} : FAQProps) => {
                         initial={{height: 0, opacity: 0}}
                         animate={{height: 'auto', opacity: 1}}
                         exit={{height:  0, opacity: 0}}
-                        transition={{duration: 0.3, ease: 'easeInOut'}}
+                        transition={{duration: 0.4, ease: 'easeInOut'}}
                         className='overflow-hidden mt-5'>
                             <p className='small-p text-grey-30 py-5 border-t border-white-95 lg:py-10 2xl:py-12.5'>{details}</p>
                             <p className='flex justify-between items-center small-p font-medium text-grey-20 bg-white-97 py-3 px-5 rounded-md boder border-white-95 2xl:py-5 2xl:px-7.5'>
@@ -61,7 +61,7 @@ const FAQs = () => {
             <div className='flex flex-col gap-2 2xl:gap-2.5'>
                 <h1 className='h1-title text-grey-15'>Frequently Asked Questions</h1>
                 <p className='small-p text-grey-20 mb-3 lg:mb-8 2xl:mb-10'>Still you have any questions? Contact our Team via support@skillbridge.com</p>
-                <Button type='link' style='white' href='/' addClass='w-fit'>See All FAQ's</Button>
+                <Button type='link' style='white' href='/' addClass='w-fit'>See All FAQ&apos;s</Button>
             </div>
             <div className='flex flex-col gap-5 lg:gap-7.5'>
                 {faqData.map(item => (
