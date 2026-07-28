@@ -74,3 +74,9 @@ export const footerNavData = [
         {title: 'Our Goals', url: '/'},
     ]}
 ];
+
+export const footerSocialData = [
+    {name: 'facebook', url: 'https://www.facebook.com', img: '/icon/facebook.svg'},
+    {name: 'x', url: 'https://x.com/home', img: '/icon/x.svg'},
+    {name: 'linkedn', url: 'https://www.linkedin.com', img: '/icon/linkedn.svg'},
+];
