@@ -38,8 +38,14 @@
 @utility h1-title {
   @apply text-[28px] leading-normal font-semibold lg:text-[38px] 2xl:text-5xl
 }
+@utility h1-sub-title {
+  @apply text-2xl leading-normal font-medium lg:text-3xl 2xl:text-5xl
+}
 @utility h3 {
   @apply text-2xl leading-normal font-medium lg:text-3xl 2xl:text-4xl
+}
+@utility h4 {
+  @apply text-lg leading-normal font-medium lg:text-xl 2xl:text-2xl
 }
 @utility small-p {
   @apply text-sm leading-normal font-normal lg:text-base 2xl:text-lg
