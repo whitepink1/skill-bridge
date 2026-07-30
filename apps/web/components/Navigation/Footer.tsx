@@ -6,7 +6,7 @@ import Link from 'next/link'
 const Footer = () => {
     return (
         <div className='bg-white mt-12.5 lg:mt-25 2xl:mt-35 z-15'>
-            <div className='flex flex-col items-start max-w-400 mx-auto px-basic pt-12.5 pb-5 border-b border-white-95 lg:pt-15 2xl:pt-25 2xl:pb-12.5 lg:flex-row lg:justify-between'>
+            <div className='flex flex-col items-start max-w-400 mx-auto pt-12.5 pb-5 border-b border-white-95 lg:pt-15 2xl:pt-25 2xl:pb-12.5 lg:flex-row lg:justify-between'>
                 <div className='flex flex-col items-start gap-3 lg:gap-4 2xl:gap-5'>
                     <Image
                         src='/icon/logo_lg.png'
