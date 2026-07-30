@@ -11,7 +11,7 @@ const Pricing = () => {
         <div>
             <div className='flex flex-col gap-5 mt-12.5 lg:mt-25 2xl:mt-37.5 lg:flex-row lg:justify-between'>
                 <div className='lg:max-w-[70%]'>
-                    <h1 className='h1-title'>Our Pricing</h1>
+                    <h1 className='h1-title text-grey-15'>Our Pricing</h1>
                     <p className='small-p text-grey-35'>Lorem ipsum dolor sit amet consectetur. Tempus tincidunt etiam eget elit id imperdiet et. Cras eu sit dignissim lorem nibh et. Ac cum eget habitasse in velit fringilla feugiat senectus in.</p>
                 </div>
                 <div className='h-fit bg-white rounded-lg p-3 self-center lg:self-end'>
