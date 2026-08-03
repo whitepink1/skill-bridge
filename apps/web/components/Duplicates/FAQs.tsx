@@ -57,7 +57,7 @@ const FAQDetails = ({name, details, link, linkText} : FAQProps) => {
 
 const FAQs = () => {
     return (
-        <div className='flex flex-col gap-10 bg-white p-6 mt-12.5 lg:p-20 2xl:p-25 lg:mt-25 2xl:mt-37.5'>
+        <div className='flex flex-col gap-10 bg-white p-6 mt-12.5 rounded-xl lg:p-20 2xl:p-25 lg:mt-25 2xl:mt-37.5'>
             <div className='flex flex-col gap-2 2xl:gap-2.5'>
                 <h1 className='h1-title text-grey-15'>Frequently Asked Questions</h1>
                 <p className='small-p text-grey-20 mb-3 lg:mb-8 2xl:mb-10'>Still you have any questions? Contact our Team via support@skillbridge.com</p>

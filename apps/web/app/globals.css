@@ -23,12 +23,12 @@
   --color-grey-40: #656567;
   --color-grey-60: #98989A;
   --color-grey-70: #B3B3B3;
+  --breakpoint-3xl: 1680px;
 }
 
 @utility px-basic {
-  @apply px-4 lg:px-15 2xl:px-20
+  @apply px-4 lg:px-15 2xl:px-20 
 }
-
 @utility text-nav {
   @apply text-sm leading-normal 2xl:text-lg
 }
