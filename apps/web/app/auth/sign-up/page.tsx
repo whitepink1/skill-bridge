@@ -2,19 +2,24 @@
 import Image from 'next/image';
 import React, { useState } from 'react';
 import { useForm } from 'react-hook-form';
+import bcrypt from 'bcryptjs';
 import Button from '../../../components/Shared/Button';
 
 const SignUp = () => {
   const [isVisible, setIsVisible] = useState<boolean>(false);
-  const {register, handleSubmit, formState: {errors}} = useForm({
+  const {register, handleSubmit, formState: {errors}, clearErrors} = useForm({
+    mode: 'onSubmit',
+    reValidateMode: 'onSubmit',
     defaultValues: {
       fullName: '',
       email: '',
       password: '',
+      agreeToTerms: false,
     }
   });
 
   const onSubmit = async () => {
+    //const hashedPassword = await bcrypt.hash(rawPassword, 10);
     console.log('Sign in');
   };
   return (
@@ -22,12 +27,12 @@ const SignUp = () => {
       <div>
 
       </div>
-      <form onSubmit={handleSubmit(onSubmit)} className='w-full flex flex-col gap-7.5 bg-white p-7.5 rounded-[10px] max-w-135 mx-auto lg:gap-10 2xl:gap-12.5 2xl:max-w-165'>
+      <div className='w-full flex flex-col not-last:gap-7.5 bg-white p-7.5 rounded-[10px] max-w-135 mx-auto not-last:lg:gap-10 not-last:2xl:gap-12.5 2xl:max-w-165'>
         <div className='flex flex-col items-center gap-2 2xl:gap-3'>
           <h1 className='h1-title'>Sign Up</h1>
           <p className='small-p text-grey-30 text-center'>Create an account to unlock exclusive features.</p>
         </div>
-        <div className='flex flex-col items-center gap-5 lg:gap-6'>
+        <form onSubmit={handleSubmit(onSubmit)} className='flex flex-col items-center gap-5 lg:gap-6'>
           <div id='name' className='w-full flex flex-col items-start gap-2.5 2xl:gap-3.5'>
             <label className='small-p-md text-grey-15'>Full Name</label>
             <input 
@@ -66,15 +71,43 @@ const SignUp = () => {
             </div>
             {errors.fullName && <p>{errors.fullName.message}</p>}
           </div>
-          <div className='flex justify-start items-center gap-2'>
-            <input type='check' className='w-6 h-6'/>
-            <p>I agree with <span>Terms of Use</span> and <span>Privacy Policy</span></p>
+          <div className='flex justify-start items-center gap-2 ml-0'>
+            <div className="relative flex items-center justify-center">
+              <input 
+                type='checkbox'
+                {...register('agreeToTerms', { required: true, onChange: (e) => {
+                  if (e.target.checked) {
+                    clearErrors('agreeToTerms');
+                  }
+                } })}
+                className='w-6 h-6 shadow-lg peer appearance-none bg-white-97 border border-white-95 rounded-sm checked:bg-grey-40 checked:border-grey-70'/>
+              <svg 
+                className="absolute h-3.5 w-3.5 text-white pointer-events-none hidden peer-checked:block" 
+                xmlns="http://www.w3.org/2000/svg" 
+                viewBox="0 0 24 24" 
+                fill="none" 
+                stroke="currentColor" 
+                strokeWidth="3" 
+                strokeLinecap="round" 
+                strokeLinejoin="round"
+              >
+                <path d="M5 13l4 4L19 7" />
+              </svg>
+            </div>
+            <p className={`small-p ${errors.agreeToTerms ? 'text-red-400' : 'text-grey-40'}`}>I agree with <span className='underline'>Terms of Use</span> and <span className='underline'>Privacy Policy</span></p>
           </div>
           <Button type='submit' style='orange' addClass='w-full'>Sign Up</Button>
+        </form>
+        <div>
+          <div className='w-full h-fit flex items-center my-6 gap-3 2xl:my-7.5'>
+            <div className='h-1/2 grow border-b border-white-90'/>
+            <p className='small-p text-grey-60'>OR</p>
+            <div className='h-1/2 grow border-b border-white-90'/>
+          </div>
+
         </div>
         
-        
-      </form>
+      </div>
     </div>
   )
 }

@@ -11,7 +11,7 @@ const Header = () => {
     const pathname = usePathname();
     console.log(pathname);
     return (
-        <section className='w-full flex flex-col mt-10 border-b border-white-95 mb-12.5'>
+        <section className='w-full flex flex-col mt-5 border-b border-white-95 mb-12.5'>
             <p className='flex justify-between text-sm text-white font-normal bg-orange-50 rounded-md px-4 py-2.5 md:justify-center'>
                 Free Courses 🌟 Sale Ends Soon, Get It Now
                 <Link href='/' className='md:ml-3'>
