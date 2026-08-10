@@ -50,6 +50,9 @@
 @utility small-p {
   @apply text-sm leading-normal font-normal lg:text-base 2xl:text-lg
 }
+@utility small-p-error {
+  @apply text-xs leading-normal text-red-500 font-medium lg:text-sm 2xl:text-base
+}
 @utility small-p-md {
   @apply text-sm leading-normal font-medium lg:text-base 2xl:text-lg
 }

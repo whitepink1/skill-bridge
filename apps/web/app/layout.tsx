@@ -3,6 +3,7 @@ import {Be_Vietnam_Pro} from 'next/font/google';
 import "./globals.css";
 import Header from "../components/Navigation/Header";
 import Footer from "../components/Navigation/Footer";
+import StoreProvider from "../store/StoreProvider";
 
 const be_vietnam = Be_Vietnam_Pro({
   weight: ['100','200','300','400','500','600','700','800','900'],
@@ -23,11 +24,13 @@ export default function RootLayout({
   return (
     <html lang="en" className={be_vietnam.className}>
       <body className='flex flex-col *:not-last:px-basic *:not-last:3xl:px-0 min-h-screen bg-white-97'>
-        <Header />
-        <main className="w-full min-h-100 max-w-400 mx-auto">
-          {children}
-        </main>
-        <Footer />
+        <StoreProvider>
+          <Header />
+          <main className="w-full min-h-100 max-w-400 mx-auto">
+            {children}
+          </main>
+          <Footer />
+        </StoreProvider>
       </body>
     </html>
   );
