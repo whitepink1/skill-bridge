@@ -1,7 +1,7 @@
 {
   "compilerOptions": {
-    "module": "NodeNext",
-    "moduleResolution": "NodeNext",
+    "module": "esnext",
+    "moduleResolution": "bundler",
     "rootDir": "./src",
     "esModuleInterop": true,
     //"verbatimModuleSyntax": true

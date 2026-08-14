@@ -27,8 +27,7 @@ const SignUp = () => {
   });
 
   const onSubmit = async (data: SignUpFormValues) => {
-    const hashedPassword = await bcrypt.hash(data.password, 10);
-    const result = await dispatch(signUp({...data, password: hashedPassword}));
+    const result = await dispatch(signUp(data));
     if (signUp.fulfilled.match(result)) {
       router.push('/');
     }
@@ -40,7 +39,7 @@ const SignUp = () => {
 
       </div>
       <div className='w-full flex flex-col not-last:gap-7.5 bg-white p-7.5 rounded-[10px] max-w-135 mx-auto not-last:lg:gap-10 not-last:2xl:gap-12.5 2xl:max-w-165'>
-        <div className='flex flex-col items-center gap-2 2xl:gap-3'>
+        <div className='flex flex-col items-center mb-7.5 gap-2 lg:mb-10 2xl:mb-12.5 2xl:gap-3'>
           <h1 className='h1-title'>Sign Up</h1>
           <p className='small-p text-grey-30 text-center'>Create an account to unlock exclusive features.</p>
         </div>

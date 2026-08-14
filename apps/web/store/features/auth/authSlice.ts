@@ -26,7 +26,7 @@ const initialState: AuthState = {
 
 export const signUp = createAsyncThunk('auth/signUp', async (data: SignUpFormValues, {rejectWithValue}) => {
     try {
-        const res = await fetch(`${API_URL}/api/auth/signup`, {
+        const res = await fetch(`${API_URL}/api/auth/sign-up`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -35,7 +35,7 @@ export const signUp = createAsyncThunk('auth/signUp', async (data: SignUpFormVal
         });
 
         const result = await res.json();
-
+        
         if (!res.ok) {
             return rejectWithValue(result.message || 'Sign Up - Failed')
         };
