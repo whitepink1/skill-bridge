@@ -46,3 +46,7 @@ export const signUpUser = async (req: Request, res: Response, next: NextFunction
         return next(err);
     }
 };
+
+export const signInUser = async (req: Request, res: Response, next: NextFunction) => {
+
+};

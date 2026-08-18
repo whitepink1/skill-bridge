@@ -41,6 +41,9 @@
 @utility h1-sub-title {
   @apply text-2xl leading-normal font-medium lg:text-3xl 2xl:text-5xl
 }
+@utility h2-title {
+  @apply text-[28px] leading-normal font-medium lg:text-[30px] 2xl:text-[38px]
+}
 @utility h3 {
   @apply text-2xl leading-normal font-medium lg:text-3xl 2xl:text-4xl
 }
