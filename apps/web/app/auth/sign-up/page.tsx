@@ -29,8 +29,9 @@ const SignUp = () => {
     const result = await dispatch(signUp(data));
     if (signUp.fulfilled.match(result)) {
       router.push('/');
-    }
-    console.log('Sign-in success');
+    } else if (signUp.rejected.match(result)) {
+      console.error('Sign-up failed', result.payload)
+    };
   };
   return (
         <form onSubmit={handleSubmit(onSubmit)} className='flex flex-col items-center gap-5 lg:gap-6'>

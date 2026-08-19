@@ -25,11 +25,12 @@ const SignIn = () => {
     });
 
     const onSubmit = async (data: SignInFormValues) => {
-        const result = await dispatch(signIn(data));
-        if (signIn.fulfilled.match(result)) {
+      const result = await dispatch(signIn(data));
+      if (signIn.fulfilled.match(result)) {
         router.push('/');
-        }
-        console.log('Sign-in success');
+      }else if (signIn.rejected.match(result)) {
+        console.error('Sign-in failed', result.payload)
+      };
     };
 
     return (
