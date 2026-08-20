@@ -14,13 +14,14 @@ const SignIn = () => {
     const {status, error} = useAppSelector((state) => state.auth);
     const router = useRouter();
     const [isVisible, setIsVisible] = useState<boolean>(false);
-    const {register, handleSubmit, formState: {errors}, clearErrors} = useForm<SignInFormValues>({
+    const {register, handleSubmit, formState: {errors}} = useForm<SignInFormValues>({
         mode: 'onSubmit',
         reValidateMode: 'onSubmit',
         resolver: zodResolver(SignInInputSchema),
         defaultValues: {
             email: '',
             password: '',
+            rememberMe: false,
         }
     });
 
@@ -69,11 +70,7 @@ const SignIn = () => {
               <div className="relative flex items-center justify-center">
                 <input 
                   type='checkbox'
-                  {...register('agreeToTerms', { required: true, onChange: (e) => {
-                    if (e.target.checked) {
-                      clearErrors('agreeToTerms');
-                    }
-                  } })}
+                  {...register('rememberMe')}
                   className='w-6 h-6 shadow-lg peer appearance-none bg-white-97 border border-white-95 rounded-sm checked:bg-grey-40 checked:border-grey-70'/>
                 <svg 
                   className="absolute h-3.5 w-3.5 text-white pointer-events-none hidden peer-checked:block" 
@@ -87,10 +84,9 @@ const SignIn = () => {
                 >
                   <path d="M5 13l4 4L19 7" />
                 </svg>
+                <p className='small-p text-grey-40 ml-2'>Remember me</p>
               </div>
-              <p className={`small-p ${errors.agreeToTerms ? 'text-red-400' : 'text-grey-40'}`}>I agree with <span className='underline'>Terms of Use</span> and <span className='underline'>Privacy Policy</span></p>
             </div>
-            {errors.agreeToTerms && <p className='small-p-error'>{errors.agreeToTerms.message}</p>}
           </div>
           <Button status={status === 'loading'} type='submit' style='orange' addClass='w-full'>{status === 'loading' ? 'Signing in...' : 'Login'}</Button>
           {error && <p className='small-p-error'>{error}</p>}

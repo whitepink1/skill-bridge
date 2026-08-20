@@ -10,7 +10,7 @@ export const SignUpInputSchema = z.object({
 export const SignInInputSchema = z.object({
     email: z.string().trim().toLowerCase().email('Invalid email address'),
     password: z.string().min(8, 'Password must be at least 8 characters'),
-    agreeToTerms: z.literal(true, {message: 'You must agree to the terms',}),
+    rememberMe: z.boolean().optional().default(false),
 });
 
 export const UserSchema = z.object({
@@ -32,4 +32,5 @@ export const UserSchema = z.object({
 
 export type User = z.infer<typeof UserSchema>;
 export type SignUpFormValues = z.infer<typeof SignUpInputSchema>;
-export type SignInFormValues = z.infer<typeof SignInInputSchema>;
+export type SignInFormValues = z.input<typeof SignInInputSchema>;
+export type SignInOutput = z.output<typeof SignInInputSchema>;

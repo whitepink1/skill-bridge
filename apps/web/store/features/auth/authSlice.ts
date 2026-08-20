@@ -78,7 +78,8 @@ export const restoreSession = createAsyncThunk('auth/restoreSession', async (_, 
 
     const res = await fetch(`${API_URL}/api/auth/me`, {
         headers: {
-            Authorization: `Bearer ${token}`
+            Authorization: `Bearer ${token}`,
+            cache: 'no-store',
         }
     });
 

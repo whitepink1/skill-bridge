@@ -61,7 +61,7 @@ export const signInUser = async (req: Request, res: Response, next: NextFunction
             })
         }
 
-        const {email, password} = parsedResult.data;
+        const {email, password, rememberMe} = parsedResult.data;
         const existingUser = await User.findOne({ email }).select('+password');;
 
         if (!existingUser || !existingUser.password) {
@@ -76,7 +76,7 @@ export const signInUser = async (req: Request, res: Response, next: NextFunction
         const token = jwt.sign(
             {userId: existingUser._id},
             process.env.JWT_SECRET as string,
-            { expiresIn: '2h'}
+            { expiresIn: rememberMe ? '7d' : '2h'}
         );
 
         return res.status(200).json({
