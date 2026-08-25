@@ -4,9 +4,13 @@ import { useAppDispatch, useAppSelector } from '@repo/web/store/hooks';
 import { logout } from '@repo/web/store/features/auth/authSlice';
 
 const AuthenticationNav = () => {
-    const { user } = useAppSelector((state) => state.auth);
+    const { user, status } = useAppSelector((state) => state.auth);
     const dispatch = useAppDispatch();
     console.log('User: ' + user)
+
+    if(status === 'idle' || status === 'loading') {
+        return <div className='small-p-md text-grey-40'>Loading...</div>
+    }
 
     return user ?
         (<div>

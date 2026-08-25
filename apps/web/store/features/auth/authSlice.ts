@@ -79,16 +79,17 @@ export const restoreSession = createAsyncThunk('auth/restoreSession', async (_, 
     const res = await fetch(`${API_URL}/api/auth/me`, {
         headers: {
             Authorization: `Bearer ${token}`,
-            cache: 'no-store',
-        }
+        },
+        cache: 'no-store',
     });
 
     if (!res.ok) {
         localStorage.removeItem('token');
         return rejectWithValue('Invalid session')
     };
-    const user = await res.json();
-    return {user, token};
+    const result = await res.json();
+    console.log('Result: ' + result.user.fullName)
+    return {user: result.user, token};
 })
 
 const authSlice = createSlice({
@@ -135,7 +136,20 @@ const authSlice = createSlice({
                 state.token = null;
                 state.status = 'idle';
                 state.error = null;
-            });
+            })
+            .addCase(restoreSession.pending, (state) => {
+                state.status = 'loading';
+            })
+            .addCase(restoreSession.fulfilled, (state, action) => {
+                state.status = 'succeeded';
+                state.user = action.payload.user;
+                state.token = action.payload.token;
+            })
+            .addCase(restoreSession.rejected, (state) => {
+                state.status = 'failed';
+                state.user = null;
+                state.token = null;
+            });;
     },
 });
 

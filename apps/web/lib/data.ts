@@ -94,3 +94,9 @@ export const OurGoalsData = [
     {title: 'Promote Collaboration and Community', text: 'We believe in the power of collaboration and peer learning. Our platform fosters a supportive and inclusive community where learners can connect, share insights, and grow together.', img: '/icon/puzzle.svg'},
     {title: 'Stay Ahead of the Curve', text: 'The digital landscape is constantly evolving, and we strive to stay at the forefront of industry trends. We regularly update our course content to ensure our students receive the latest knowledge and skills.', img: '/icon/light-bulb.svg'},
 ];
+
+export const contactInfoData = [
+    {img: '/icon/message.svg', text: 'support@skillbridge.com'},
+    {img: '/icon/phone.svg', text: '+91 00000 00000'},
+    {img: '/icon/location.svg', text: 'Some Where in the World'},
+];
