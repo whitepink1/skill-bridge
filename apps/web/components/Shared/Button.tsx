@@ -26,7 +26,7 @@ const Button = ({type, status = true, href, onHandler, addClass, style, children
         :
 
         type === 'submit' ?
-            <button disabled={status} type='submit' className={`text-nav px-5 py-3 rounded-md hover:scale-103 hover:shadow-md lg:px-6 2xl:px-8.5 2xl:py-3.5 ${colorScheme[style]} ${addClass}`}>
+            <button disabled={status} type='submit' className={`text-nav px-5 py-3 rounded-md hover:scale-103 hover:shadow-md lg:px-6 2xl:px-8.5 2xl:py-3.5 disabled:opacity-50 disabled:cursor-not-allowed ${colorScheme[style]} ${addClass}`}>
                 {children}
             </button>
         :
