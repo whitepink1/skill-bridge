@@ -6,6 +6,7 @@ import cors from 'cors';
 import morgan from 'morgan';
 import mongoose from 'mongoose';
 import userRoutes from './routes/user';
+import contactRoutes from './routes/contact';
 
 dotenv.config();
 
@@ -22,6 +23,7 @@ app.use(express.json());
 
 //routes
 app.use('/api/auth', userRoutes);
+app.use('/contact', contactRoutes);
 
 app.use((error: any, req: Request, res: Response, _next: NextFunction) => {
     console.error(error);

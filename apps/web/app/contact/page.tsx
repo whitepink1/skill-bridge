@@ -1,16 +1,20 @@
 'use client'
-import React, { useState } from 'react'
-import PageTitle from '../../components/Shared/PageTitle'
-import { contactInfoData, footerSocialData } from '../../lib/data'
+import React from 'react'
+import PageTitle from '@repo/web/components/Shared/PageTitle'
+import { contactInfoData, footerSocialData } from '@repo/web/lib/data'
 import Image from 'next/image'
 import { useForm } from 'react-hook-form'
 import {ContactFormValues, ContactInputSchema} from '@repo/validation/contact-validation';
 import { zodResolver } from '@hookform/resolvers/zod'
-import Button from '../../components/Shared/Button'
+import Button from '@repo/web/components/Shared/Button'
+import { useAppDispatch, useAppSelector } from '@repo/web/store/hooks'
+import { sendContactMessage } from '@repo/web/store/features/contact/contactSlice'
+import toast from 'react-hot-toast'
 
 const Contact = () => {
-    const [isLoading, setIsLoading] = useState(false);
-    const {register, handleSubmit, formState: {errors}} = useForm<ContactFormValues>({
+    const dispatch = useAppDispatch();
+    const {status} = useAppSelector((state) => state.contact);
+    const {register, handleSubmit, reset, formState: {errors}} = useForm<ContactFormValues>({
         mode: 'onSubmit',
         resolver: zodResolver(ContactInputSchema),
         defaultValues: {
@@ -24,13 +28,13 @@ const Contact = () => {
     });
 
     const onSubmit = async (data: ContactFormValues) => {
-        setIsLoading(true);
-        try {
-            console.log(data);
-        } finally {
-            setIsLoading(false);
+        const result = await dispatch(sendContactMessage(data));
+        if (sendContactMessage.fulfilled.match(result)) {
+            toast.success('Message sent! We\'ll get back to you soon.', {duration: 5000});
+            reset();
+        } else if (sendContactMessage.rejected.match(result)) {
+            toast.error((result.payload as string) || 'Something went wrong. Please try again.', {duration: 6000});
         }
-        console.log(data);
     };
 
     return (
@@ -108,8 +112,8 @@ const Contact = () => {
                             className='w-full small-p p-5 bg-white-99 rounded-lg border border-white-95 placeholder:text-grey-40 lg:min-h-35 2xl:p-6' />
                         {errors.message && <p className='small-p-error'>{errors.message.message}</p>}
                     </div> 
-                    <Button type='submit' status={isLoading} style='orange' addClass='mt-2.5 h-fit lg:col-span-2 lg:w-fit lg:mx-auto'>
-                        {isLoading ? 'Sending...' : 'Send Your Message'}
+                    <Button type='submit' status={status === 'loading'} style='orange' addClass='mt-2.5 h-fit lg:col-span-2 lg:w-fit lg:mx-auto'>
+                        {status === 'loading' ? 'Sending...' : 'Send Your Message'}
                     </Button>
                 </form>
                 <div className='flex flex-col gap-5 p-7.5 bg-white border-white-95 max-lg:border-t max-lg:rounded-b-lg lg:p-15 lg:rounded-r-lg lg:border-l 2xl:p-20'>

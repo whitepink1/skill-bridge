@@ -149,7 +149,7 @@ const authSlice = createSlice({
                 state.status = 'failed';
                 state.user = null;
                 state.token = null;
-            });;
+            });
     },
 });
 

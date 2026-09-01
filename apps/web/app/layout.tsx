@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import {Be_Vietnam_Pro} from 'next/font/google';
+import { Toaster } from 'react-hot-toast';
 import "./globals.css";
 import Header from "../components/Navigation/Header";
 import Footer from "../components/Navigation/Footer";
@@ -28,6 +29,7 @@ export default function RootLayout({
           <Header />
           <main className="w-full min-h-100 max-w-400 mx-auto">
             {children}
+            <Toaster position="top-center" />
           </main>
           <Footer />
         </StoreProvider>
