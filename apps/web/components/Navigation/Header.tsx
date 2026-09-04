@@ -23,12 +23,12 @@ const Header = () => {
                 </Link>
             </p>
             <div className='w-full flex justify-between items-center my-3.5 max-w-400 mx-auto'>
-                <div className='relative h-10 w-10'>
+                <Link href='/' className='relative h-10 w-10'>
                     <Image
                     src="/icon/logo_lg.png"
                     fill
                     alt="Skill bridge"/>
-                </div>
+                </Link>
                 <div className='hidden ml-12.5 gap-2.5 lg:flex'>
                     {headerNav.map((item) => (
                         <Link 

@@ -17,6 +17,7 @@
     "@repo/validation": "*",
     "@tailwindcss/postcss": "^4.3.2",
     "bcryptjs": "^3.0.3",
+    "framer-motion": "^13.2.0",
     "motion": "^12.42.2",
     "next": "16.2.0",
     "postcss": "^8.5.16",
