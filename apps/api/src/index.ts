@@ -1,14 +1,14 @@
+import './config/env';
 import type { Request, Response, NextFunction } from 'express';
 import express from 'express';
 import helmet from 'helmet';
-import dotenv from 'dotenv';
 import cors from 'cors';
 import morgan from 'morgan';
 import mongoose from 'mongoose';
+import passport from 'passport';
 import userRoutes from './routes/user';
 import contactRoutes from './routes/contact';
-
-dotenv.config();
+import './config/passport';
 
 const app = express();
 const PORT = process.env.PORT || 5000;
@@ -20,6 +20,7 @@ app.use(cors({
 }));
 app.use(morgan('dev'));
 app.use(express.json());
+app.use(passport.initialize());
 
 //routes
 app.use('/api/auth', userRoutes);

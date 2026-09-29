@@ -58,7 +58,15 @@ export default function AuthLayout({children}: {children: ReactNode}) {
                         <p className='small-p text-grey-60'>OR</p>
                         <div className='h-1/2 grow border-b border-white-90'/>
                     </div>
-                    <button className='bg-grey-35 p-3 text-white'>Sign Up with Google</button>
+                    <Link href={`${process.env.NEXT_PUBLIC_BACKEND_URL}/api/auth/google`} className='w-full flex justify-center items-center text-sm font-medium gap-3.5 bg-white-97 text-grey-15 border border-white-95 p-4 rounded-lg 2xl:text-lg 2xl:rounded-[10px]'>
+                        <Image
+                            src='/icon/google.svg'
+                            width={24}
+                            height={24}
+                            alt='Google'
+                            className=''/>
+                        {isSignIn ? 'Login with Google' : 'Sign Up with Google'}
+                    </Link>
                     <p className='flex gap-2 small-p text-grey-15 mt-6'>{isSignIn ? 'Don’t have an account?' : 'Already have an account?'} 
                     <Link href={isSignIn ? '/auth/sign-up' : '/auth/sign-in'} className='flex font-medium underline'>
                         {isSignIn ? 'Sign Up' : 'Login'} 

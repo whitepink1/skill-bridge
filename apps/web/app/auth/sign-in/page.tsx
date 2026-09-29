@@ -73,7 +73,7 @@ const SignIn = () => {
                   {...register('rememberMe')}
                   className='w-6 h-6 shadow-lg peer appearance-none bg-white-97 border border-white-95 rounded-sm checked:bg-grey-40 checked:border-grey-70'/>
                 <svg 
-                  className="absolute h-3.5 w-3.5 text-white pointer-events-none hidden peer-checked:block" 
+                  className="absolute h-3.5 w-3.5 left-1.25 text-white pointer-events-none hidden peer-checked:block" 
                   xmlns="http://www.w3.org/2000/svg" 
                   viewBox="0 0 24 24" 
                   fill="none" 
